@@ -1,0 +1,17 @@
+<h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background-color: aqua; color: black; height: 50px; width: 100px; margin-top: 40px;">Submit</button>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<a href="{% url 'student_add_view' %}">Add Student</a>

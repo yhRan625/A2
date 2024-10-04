@@ -1,0 +1,21 @@
+
+<h1> Student Info </h1>
+<p>Name: {{ student.first_name }} {{ student.last_name }}</p>
+<p>Email: {{ student.email }}</p>
+<p>Date of Birth: {{ student.date_of_birth }}</p>
+<p>Enrollment Date: {{ student.enrollment_date }}</p>
+<p>Grade: {{ student.grade }}</p>
+<div>
+    <a href="{% url 'student_edit_view' pk=student.pk %}">Edit</a>
+</div>
+<div>
+    <a href="{% url 'student_add_view' %}">Add Student</a>
+</div>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
